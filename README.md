@@ -1,1 +1,3 @@
 # Nathe
+
+Copyright Ethan Angstetra
