@@ -1,3 +1,2 @@
-# Nathe
+# Nathe-Site
 
-Copyright Ethan Angstetra
