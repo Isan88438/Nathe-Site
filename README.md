@@ -12,7 +12,7 @@ The model checkpoint and inference engine are packaged into the page. No separat
 
 - `index.html` — standalone Nathe chat application.
 - `benchmarks/nathe-generation-benchmark.json` — held-out generation benchmark output.
-- `LICENSE.md` — project copyright and licensing information.
+- `LICENSE.md` — project copyright notice.
 
 ## Model provenance
 
@@ -23,6 +23,18 @@ The embedded checkpoint comes from the successful Nathe project-training run **#
 ```
 
 The standalone C/WebAssembly runtime was produced by successful standalone build **#134** in Nathe-Private. This public release bundles that tested runtime with the later run #28 checkpoint. Its embedded reference index contains **1,222** locally authored project references.
+
+## Enable the live GitHub Pages website
+
+The application files are committed, but GitHub Pages was not enabled in the repository when this release was committed. To publish the live website:
+
+1. Open **Settings → Pages** in this repository.
+2. Set **Build and deployment → Source** to **GitHub Actions**.
+3. Open **Actions → Deploy Nathe website → Run workflow**.
+
+The workflow publishes the root application and benchmark. The expected site address is:
+
+`https://isan88438.github.io/Nathe-Site/`
 
 ## Known limitations
 
