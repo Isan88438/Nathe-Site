@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "model": "Nathe native C checkpoint",
+  "evaluation_set": "data/evaluation/generation-benchmark.jsonl",
+  "total_prompts": 12,
+  "successful_generations": 12,
+  "failed_generations": 0,
+  "mean_keyword_coverage": 0.0,
+  "interpretation": "Diagnostic lexical coverage only; not a factuality or intelligence score.",
+  "results": [
+    {
+      "id": "variable-purpose",
+      "prompt": "User: When writing software, why is it useful to give a value a name that can be reused later?\nNathe:",
+      "response": "2 - 10.",
+      "expected_keywords": [
+        "named",
+        "value",
+        "store"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "named",
+        "value",
+        "store"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "compiler-purpose",
+      "prompt": "User: How does a compiler turn program instructions into something a processor can execute?\nNathe:",
+      "response": "ce helps tonent.",
+      "expected_keywords": [
+        "source code",
+        "translate",
+        "machine code"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "source code",
+        "translate",
+        "machine code"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "debugging",
+      "prompt": "User: What steps are involved when a developer investigates a defect and corrects it?\nNathe:",
+      "response": "able ts.",
+      "expected_keywords": [
+        "error",
+        "find",
+        "fix"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "error",
+        "find",
+        "fix"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "computer-memory",
+      "prompt": "User: What distinguishes working memory used by open programs from persistent file storage?\nNathe:",
+      "response": "inal ratio ll explain.",
+      "expected_keywords": [
+        "temporary",
+        "memory",
+        "files"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "temporary",
+        "memory",
+        "files"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "api",
+      "prompt": "User: Why is a defined software interface useful when separate components must exchange information?\nNathe:",
+      "response": "quantity fel's till devents to acent is information explaince.",
+      "expected_keywords": [
+        "interface",
+        "software",
+        "component"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "interface",
+        "software",
+        "component"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "fractions",
+      "prompt": "User: What should be done to write a fraction in its lowest equivalent form?\nNathe:",
+      "response": "ify the gut buturing the answer data is efft, stiimment a position that decation and be traverseeed.",
+      "expected_keywords": [
+        "numerator",
+        "denominator",
+        "common factor"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "numerator",
+        "denominator",
+        "common factor"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "speed",
+      "prompt": "User: What calculation gives the rate of travel over an entire journey?\nNathe:",
+      "response": "/ 3 = 6. The answer is 8.",
+      "expected_keywords": [
+        "distance",
+        "time",
+        "divide"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "distance",
+        "time",
+        "divide"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "photosynthesis",
+      "prompt": "User: How do plants convert sunlight into stored chemical energy?\nNathe:",
+      "response": "2 - es from zero spect to get 7.",
+      "expected_keywords": [
+        "light",
+        "carbon dioxide",
+        "oxygen"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "light",
+        "carbon dioxide",
+        "oxygen"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "experiment-variables",
+      "prompt": "User: In a controlled investigation, what factor is changed and what result is recorded?\nNathe:",
+      "response": "2 - 96: 2 x 7. The answer is 5, then multiply by 29 = 654.",
+      "expected_keywords": [
+        "changed",
+        "measured",
+        "variable"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "changed",
+        "measured",
+        "variable"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "hypothesis",
+      "prompt": "User: What makes a proposed scientific explanation suitable for experimental investigation?\nNathe:",
+      "response": "ansformer is tate sion without folsciper 15, then multiply by 5/verify the ging a come information from 2.",
+      "expected_keywords": [
+        "testable",
+        "explanation",
+        "prediction"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "testable",
+        "explanation",
+        "prediction"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "metaphor",
+      "prompt": "User: How does a writer use an indirect comparison between two different things to add meaning?\nNathe:",
+      "response": "3 times to a line words to devestaract, model wordone call 15 training information at ct 3.",
+      "expected_keywords": [
+        "comparison",
+        "symbolic",
+        "meaning"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "comparison",
+        "symbolic",
+        "meaning"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    },
+    {
+      "id": "plagiarism",
+      "prompt": "User: When is the use of another person's written ideas considered an academic integrity violation?\nNathe:",
+      "response": "addressing rentrent.",
+      "expected_keywords": [
+        "words",
+        "ideas",
+        "acknowledgement"
+      ],
+      "matched_keywords": [],
+      "missing_keywords": [
+        "words",
+        "ideas",
+        "acknowledgement"
+      ],
+      "keyword_coverage": 0.0,
+      "error": ""
+    }
+  ]
+}
