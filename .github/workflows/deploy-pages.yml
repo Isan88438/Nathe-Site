@@ -1,6 +1,15 @@
 name: Deploy Nathe website
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "research.js"
+      - "research-index.json"
+      - "README.md"
+      - "benchmarks/**"
+      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -27,6 +36,8 @@ jobs:
           mkdir -p site/benchmarks
           cp index.html site/index.html
           cp README.md site/README.md
+          cp research.js site/research.js
+          cp research-index.json site/research-index.json
           cp benchmarks/nathe-generation-benchmark.json site/benchmarks/nathe-generation-benchmark.json
 
       - name: Upload GitHub Pages artifact

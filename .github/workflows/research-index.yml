@@ -1,0 +1,86 @@
+name: Refresh Nathe web research index
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/build_research_index.py"
+      - "research-seeds.txt"
+      - ".github/workflows/research-index.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nathe-static-research-index
+  cancel-in-progress: false
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Nathe site
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test Nathe's own crawler
+        run: |
+          python -m unittest discover -s tests -p "test_*.py" -v
+          python -m py_compile tools/build_research_index.py
+
+      - name: Check browser research and integrated chat scripts
+        run: |
+          node --check research.js
+          mkdir -p build
+          python - <<'PY'
+          from pathlib import Path
+          page = Path("index.html").read_text(encoding="utf-8")
+          marker = "<script>const form ="
+          if marker not in page:
+              raise SystemExit("Could not find the inlined Nathe chat application.")
+          start = page.index(marker) + len("<script>")
+          end = page.index("</script>", start)
+          Path("build/nathe-app.js").write_text(page[start:end], encoding="utf-8")
+          PY
+          node --check build/nathe-app.js
+
+      - name: Refresh the static public-web index
+        run: python tools/build_research_index.py --max-pages 24
+
+      - name: Validate the generated static research index
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("research-index.json").read_text(encoding="utf-8"))
+          if data.get("version") != 1 or not isinstance(data.get("pages"), list):
+              raise SystemExit("Nathe's static web index has an invalid format.")
+          for page in data["pages"]:
+              if not page.get("url", "").startswith("https://"):
+                  raise SystemExit("The index contains a non-HTTPS source.")
+              if len(page.get("text", "")) > 1500:
+                  raise SystemExit("A stored web extract exceeds the size limit.")
+          print(
+              f"Index contains {len(data['pages'])} pages and "
+              f"{len(data.get('frontier', []))} queued links."
+          )
+          PY
+
+      - name: Publish updated research index to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research-index.json
+          if git diff --cached --quiet; then
+            echo "Nathe's published research index is already current."
+          else
+            git commit -m "Refresh Nathe public web research index"
+            git push origin HEAD:main
+          fi

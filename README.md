@@ -4,9 +4,9 @@ Nathe is an independently developed language-model project. This repository cont
 
 ## Run Nathe
 
-Open **[index.html](./index.html)** in a modern browser. The page is self-contained: it embeds the Nathe C inference engine compiled to WebAssembly, the trained model checkpoint, and the local project-reference index. It does not use hosted AI providers, online search, external knowledge APIs, or runtime network connections.
+Open the live GitHub Pages website or the downloaded `index.html`. The application embeds Nathe's C/WebAssembly inference engine, trained model checkpoint and local project-reference index. Its optional Web Research feature loads a compact, same-site index of public web pages. No local Python server, hosted AI model or third-party search API is required.
 
-The model checkpoint and inference engine are packaged into the page. No separate model download or server is required.
+For the GitHub Pages website, `research-index.json` is fetched from the same site. The research index is automatically refreshed by GitHub Actions and is not fetched live for every question.
 
 ## Release contents
 
@@ -32,7 +32,7 @@ The application files are committed, but GitHub Pages was not enabled in the rep
 2. Set **Build and deployment → Source** to **GitHub Actions**.
 3. Open **Actions → Deploy Nathe website → Run workflow**.
 
-The workflow publishes the root application and benchmark. The expected site address is:
+The workflow publishes the root application, research client, research index and benchmark. The expected site address is:
 
 `https://isan88438.github.io/Nathe-Site/`
 
@@ -48,3 +48,14 @@ A later full build (#153) completed corpus preparation, native training, checkpo
 - **Nathe-Site** contains the public standalone application release.
 
 Copyright Ethan Angstetra.
+
+
+## Nathe Web Research
+
+Web Research is enabled by default in the chat. For an ordinary question, Nathe searches the published research index first, passes up to two short excerpts into its own C model as untrusted source context, and displays links to the matching pages. The **Web On / Web Off** control lets you switch to local-only answers.
+
+The index is built by Nathe's own Python-standard-library crawler in GitHub Actions. It starts from \`research-seeds.txt\`, follows relevant public HTTPS links, checks each site's \`robots.txt\`, blocks private-network addresses, and stores short text extracts with source URLs and dates. The workflow refreshes it approximately every six hours and automatically triggers a GitHub Pages deployment when the index changes.
+
+**You do not need to run Python or start a localhost server.** The crawler runs on GitHub's build runners, not on your computer. The browser searches the latest published snapshot. This is not a live search of every web page: it covers the pages the crawler has discovered and indexed so far, and the index can be several hours behind.
+
+The index contains short text extracts for searching and model context, not complete copies of the source websites. Retrieved web text is not silently added to Nathe's model-training corpus. Nathe's neural model remains experimental, so check the cited pages for important facts.

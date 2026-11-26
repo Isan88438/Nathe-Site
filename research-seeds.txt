@@ -1,0 +1,16 @@
+# topic words | public HTTPS starting page
+science astronomy space NASA|https://www.nasa.gov/
+science astronomy ESA|https://www.esa.int/
+australian science research CSIRO|https://www.csiro.au/
+climate ocean weather NOAA|https://www.noaa.gov/
+statistics Australia population economy ABS|https://www.abs.gov.au/
+computing programming web HTML CSS JavaScript MDN|https://developer.mozilla.org/en-US/
+programming Python documentation|https://docs.python.org/3/
+programming C language reference|https://en.cppreference.com/w/c
+history geography world reference|https://www.britannica.com/
+news international science|https://www.bbc.com/news
+science research journals|https://www.nature.com/
+health public health WHO|https://www.who.int/
+education mathematics physics chemistry|https://www.khanacademy.org/
+technology standards measurement NIST|https://www.nist.gov/
+earth environment conservation|https://www.nationalgeographic.com/
